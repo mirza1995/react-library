@@ -1,0 +1,35 @@
+{
+  "name": "@mirza1995/react-library",
+  "version": "0.0.1",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/mirza1995"
+  },
+  "description": "React component library",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "rollup": "rollup -c"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "library"
+  ],
+  "author": "Mirza Alispahic",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.67",
+    "react": "^18.2.0",
+    "rollup": "^4.13.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.2"
+  }
+}
