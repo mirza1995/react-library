@@ -1,6 +1,6 @@
 {
   "name": "@mirza1995/react-library",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/mirza1995"
   },

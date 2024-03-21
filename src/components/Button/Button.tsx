@@ -1,10 +1,10 @@
 import React from "react";
-import "./Button.scss";
+import styles from "./Button.module.scss";
 
 export interface ButtonProps {
   label: string;
 }
 
 export const Button = (props: ButtonProps) => {
-  return <button>{props.label}</button>;
+  return <button className={styles.button}>{props.label}</button>;
 };
