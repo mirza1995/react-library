@@ -1,10 +1,10 @@
-name: Publish package to GitHub Packages
+name: Publish package
 on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
     steps:
       - uses: actions/checkout@v4
