@@ -1,3 +1,6 @@
+@import "src/sz-theme/_variables.scss";
+
 .button {
   font-size: 60px;
+  background-color: $color-green-front;
 }

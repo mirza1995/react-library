@@ -6,6 +6,8 @@ import packageJson from "./package.json" assert { type: "json" };
 import postcss from "rollup-plugin-postcss";
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import copy from 'rollup-plugin-copy';
+import styles from 'rollup-plugin-styles';
 
 export default [
   {
@@ -28,10 +30,16 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
+        extract: false,
         modules: true,
-        use: ['sass']
-      }), 
+        use: ["sass"],
+      }),
       terser(),
+      copy({
+        targets: [
+          { src: 'src/sz-theme', dest: 'dist' }
+        ]
+      })
     ],
   },
   {

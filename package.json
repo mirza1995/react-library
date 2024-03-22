@@ -1,6 +1,6 @@
 {
   "name": "@mirza1995/react-library",
-  "version": "0.0.10",
+  "version": "0.0.15",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/mirza1995"
   },
@@ -54,6 +54,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "react": "^18.2.0",
     "rollup": "^4.13.0",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
