@@ -1,0 +1,100 @@
+@import "src/sz-theme/_variables.scss";
+
+.sz-text-input {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: transparent;
+  height: 25px;
+
+  &_focused {
+    border-radius: 2px;
+    outline: 2px solid $color-interactive;
+    outline-offset: 2px;
+  }
+
+  &_error {
+    .sz-text-input__input-wrapper {
+      border-bottom: 1px solid $color-red-front;
+    }
+
+    .sz-text-input__input-element {
+      &::placeholder {
+        color: $color-red-front;
+      }
+    }
+  }
+
+  &_disabled {
+    .sz-text-input__input-wrapper {
+      border-bottom: 1px solid $color-disabled-front;
+    }
+
+    .sz-text-input__input-element {
+      cursor: not-allowed;
+      caret-color: transparent;
+      color: $color-front-light;
+
+      &::placeholder {
+        color: $color-disabled-front;
+      }
+    }
+
+    .sz-text-input__password-visibility-icon {
+      cursor: not-allowed;
+      path {
+        fill: $color-disabled-front;
+      }
+    }
+  }
+
+  &__input-wrapper {
+    display: flex;
+    border-bottom: 1px solid $color-front;
+    height: 24px;
+  }
+
+  &__input-element {
+    @include desktop-body-font;
+    padding-left: 0;
+    border: 0;
+    color: $color-front;
+    background-color: transparent;
+    border-radius: 0;
+    width: 100%;
+    height: 20px;
+
+    &::placeholder {
+      color: $color-front;
+      opacity: 1;
+    }
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-content: center;
+  }
+
+  &__password-visibility-button {
+    background-color: transparent;
+    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+
+    &:focus-visible {
+      outline: 2px solid $color-interactive;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  &__password-visibility-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,15 @@
+.text-input-wrapper {
+  padding: 20px;
+  width: 300px;
+
+  .text-input-with-style {
+    border: 2px purple dotted;
+    .sz-text-input__input-element {
+      background-color: red;
+    }
+  }
+}
+
+.pen-icon {
+  width: 14px;
+}
