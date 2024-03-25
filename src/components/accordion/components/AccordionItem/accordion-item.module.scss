@@ -1,0 +1,80 @@
+@import "src/sz-theme/_variables.scss";
+
+.accordionItem {
+    min-width: 360px;
+    
+    .heading {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 44px;
+        border-radius: 4px;
+        background-color: white;
+
+        .title {
+            @include desktop-title-medium-font;
+            color: $color-front;
+        }
+
+        .smallTitle {
+            @include desktop-body-medium-font;
+        }
+
+        .arrowDown {
+            margin-left: 6px;
+            margin-right: 13px;
+            transition: transform 0.3s ease;
+        }
+
+        .expanded {
+            transform: rotate(180deg);
+        }
+
+        &:focus-visible {
+            @include focused-outline;
+        }
+
+        &:hover {
+            background-color: $color-interactive-light-z;
+        }
+
+        &:active {
+            background-color: $color-interactive-light-x;
+        }
+    }
+
+    .content {
+        padding-top: 24px;
+        padding-left: 2px;
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+.withBottomBorder {
+    border-bottom: 1px solid $color-disabled-front;
+
+    .content {
+        padding-bottom: 16px;
+    }
+}
+
+.disabled {
+    
+    .heading {
+        &:hover {
+            cursor: not-allowed;
+            background-color: white;
+        }
+
+        .title {
+            color: $color-disabled-front;
+        }
+
+        svg path {
+            fill: $color-disabled-front;
+        }
+    }
+}

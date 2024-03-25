@@ -1,0 +1,15 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as Stories from './accordion.stories';
+
+<Meta of={Stories} />
+
+# Accordion
+
+A component which hides different content inside and enables user to open and show that content by clicking on the heading.
+You can build an accordion using a combination of the Accordion and AccordionItem components.
+The Accordion components accepts a list of AccordionItem components as children and
+each AccordionItem is responsible for displaying the accordion's heading and panel content.
+
+<Canvas of={Stories.Default} />
+
