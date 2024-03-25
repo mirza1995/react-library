@@ -1,0 +1,91 @@
+@import "src/sz-theme/_variables.scss";
+
+@mixin loader-size($size) {
+  > div {
+    height: $size;
+    width: $size;
+  }
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+
+  &.animation {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    > div {
+      -webkit-animation: bounce-delay 1.4s infinite ease-in-out both;
+      animation: bounce-delay 1.4s infinite ease-in-out both;
+      border-radius: 100%;
+      display: inline-block;
+      background-color: $color-interactive;
+    }
+
+    .bounce1 {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+
+    .bounce2 {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+  }
+
+  &--color-interactive {
+    > div {
+      background-color: $color-interactive !important;
+    }
+  }
+
+  &--color-white {
+    > div {
+      background-color: $color-white !important;
+    }
+  }
+
+  &--color-interactive-dark {
+    > div {
+      background-color: $color-interactive-dark !important;
+    }
+  }
+
+  &--size-small {
+    @include loader-size(8px);
+  }
+
+  &--size-medium {
+    @include loader-size(18px);
+  }
+
+  &--size-large {
+    @include loader-size(24px);
+  }
+}
+
+@-webkit-keyframes bounce-delay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes bounce-delay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
