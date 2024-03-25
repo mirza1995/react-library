@@ -1,6 +1,6 @@
 import './button.composition.scss';
 import React from 'react';
-import { Button, IButtonProps } from './button';
+import { Button, IButtonProps } from './Button';
 import PenIcon from './components/PenIcon';
 
 export const BasicButton = (args: Partial<IButtonProps>) => (

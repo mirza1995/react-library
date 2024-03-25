@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { TButtonSize, TButtonVariant } from './button';
+import { TButtonSize, TButtonVariant } from './Button';
 import { BasicButton } from './button.composition';
 import PenIcon from './components/PenIcon';
 

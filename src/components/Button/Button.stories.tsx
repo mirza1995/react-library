@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { IButtonProps, TButtonSize, TButtonVariant } from './button';
+import { IButtonProps, TButtonSize, TButtonVariant } from './Button';
 import { BasicButton, ButtonsPalette } from './button.composition';
 import { fn } from '@storybook/test';
 
