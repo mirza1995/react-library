@@ -6,7 +6,7 @@ import React, {
   MouseEventHandler,
   ReactNode,
 } from 'react';
-import style from './button.module.scss';
+import style from './Button.module.scss';
 import { Loader } from '../loader';
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
