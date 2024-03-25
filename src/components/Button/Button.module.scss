@@ -1,6 +1,282 @@
 @import "src/sz-theme/_variables.scss";
 
+@mixin set-content-color($color) {
+  color: $color;
+
+  .button__left-icon-wrapper,
+  .button__right-icon-wrapper {
+    svg {
+      color: $color;
+      fill: $color;
+      path {
+        color: $color;
+        fill: $color;
+      }
+    }
+  }
+
+  .button__loader {
+    border-bottom-color: $color;
+  }
+}
+
+@mixin set-counter-color($color1, $color2) {
+  background-color: $color1;
+  color: $color2;
+}
+
+@mixin set-counter-size($width: 16px, $padding: 2px) {
+  padding: $padding;
+  min-width: $width;
+}
+
 .button {
-  font-size: 60px;
-  background-color: $color-red-front;
+  border-radius: 5px;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &__left-icon-wrapper,
+  &__right-icon-wrapper {
+    width: 16px;
+    height: 16px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__counter-wrapper {
+    border-radius: 50vh;
+    width: fit-content;
+    box-sizing: content-box;
+    @include desktop-caption-medium-font;
+    @include set-counter-size();
+  }
+
+  &[aria-disabled='true'],
+  &--loading {
+    cursor: not-allowed;
+  }
+
+  // Focus
+
+  &:focus-visible {
+    outline: 2px solid $color-interactive;
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Full width
+
+  &--full-width {
+    width: 100%;
+  }
+
+  // Large size
+
+  &--size-large {
+    border-radius: 8px;
+    height: 44px;
+    gap: 8px;
+    padding: 12px 24px;
+
+    .button__content {
+      @include desktop-body-medium-font;
+      gap: 8px;
+    }
+  }
+
+  // Medium size
+
+  &--size-medium {
+    border-radius: 4px;
+    height: 36px;
+    gap: 4px;
+    padding: 8px 12px;
+
+    .button__content {
+      @include desktop-body-medium-font;
+      gap: 4px;
+    }
+  }
+
+  // Small size
+
+  &--size-small {
+    border-radius: 4px;
+    height: 32px;
+    gap: 4px;
+    padding: 8px 12px;
+
+    .button__content {
+      @include desktop-caption-medium-font;
+      gap: 4px;
+    }
+
+    .button__counter-wrapper {
+      @include set-counter-size(12px, 0px 2px);
+    }
+  }
+
+  // Primary variant
+
+  &--variant-primary {
+    border: none;
+    background-color: $color-interactive;
+    color: $color-white;
+    @include set-content-color($color-white);
+
+    .button__counter-wrapper {
+      @include set-counter-color($color-white, $color-interactive);
+    }
+
+    &:hover:not(.button--loading):not([aria-disabled='true']) {
+      background-color: $color-interactive-light;
+    }
+
+    &:active {
+      background-color: $color-interactive-dark;
+    }
+
+    &[aria-disabled='true'] {
+      background-color: $color-disabled-back;
+      @include set-content-color($color-disabled-front);
+
+      .button__counter-wrapper {
+        @include set-counter-color($color-white, $color-disabled-front);
+      }
+    }
+  }
+
+  &--variant-primary.button--loading {
+    background-color: $color-interactive-dark;
+  }
+
+  // Secondary variant
+
+  &--variant-secondary {
+    border: solid 1px $color-interactive;
+    background-color: $color-white;
+    @include set-content-color($color-interactive);
+
+    .button__counter-wrapper {
+      @include set-counter-color($color-interactive, $color-white);
+    }
+
+    &:hover:not(.button--loading):not([aria-disabled='true']) {
+      background-color: $color-interactive-light-z;
+    }
+
+    &:active {
+      background-color: $color-interactive-light-x;
+      @include set-content-color($color-interactive-dark);
+    }
+
+    &[aria-disabled='true'] {
+      border: solid 1px $color-disabled-front;
+      background-color: $color-white;
+      @include set-content-color($color-disabled-front);
+    }
+  }
+
+  &--variant-secondary.button--loading {
+    background-color: $color-interactive-light-x;
+    @include set-content-color($color-interactive-dark);
+  }
+
+  // Tertiary variant
+
+  &--variant-tertiary {
+    border: none;
+    background-color: $color-white;
+    @include set-content-color($color-interactive);
+
+    .button__counter-wrapper {
+      @include set-counter-color($color-interactive, $color-white);
+    }
+
+    &:hover:not(.button--loading):not([aria-disabled='true']) {
+      background-color: $color-interactive-light-z;
+    }
+
+    &:active {
+      background-color: $color-interactive-light-x;
+      @include set-content-color($color-interactive-dark);
+    }
+
+    &[aria-disabled='true'] {
+      background-color: $color-white;
+      @include set-content-color($color-disabled-front);
+    }
+  }
+
+  &--variant-tertiary.button--loading {
+    background-color: $color-interactive-light-x;
+    @include set-content-color($color-interactive-dark);
+  }
+
+  // Text variant
+
+  &--variant-text {
+    border: none;
+    background-color: $color-white;
+    @include set-content-color($color-front-dark);
+
+    .button__counter-wrapper {
+      @include set-counter-color($color-front-dark, $color-white);
+    }
+
+    &:hover:not(.button--loading):not([aria-disabled='true']) {
+      background-color: $color-interactive-light-z;
+      @include set-content-color($color-front-light);
+
+      .button__counter-wrapper {
+        @include set-counter-color(
+          $color-front-light,
+          $color-interactive-light-z
+        );
+      }
+    }
+
+    &:active {
+      background-color: $color-interactive-light-x;
+    }
+
+    &[aria-disabled='true'] {
+      background-color: $color-white;
+      @include set-content-color($color-disabled-front);
+    }
+  }
+
+  &--variant-secondary,
+  &--variant-tertiary,
+  &--variant-text {
+    &[aria-disabled='true'] {
+      .button__counter-wrapper {
+        @include set-counter-color($color-disabled-front, $color-white);
+      }
+    }
+  }
+
+  &--variant-text.button--loading {
+    background-color: $color-interactive-light-x;
+  }
 }

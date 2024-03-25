@@ -1,0 +1,63 @@
+@import "src/sz-theme/_variables.scss";
+
+@mixin style-filter-icon($color) {
+  svg[class*='filter-icon'] {
+    stroke: $color;
+    path {
+      stroke: $color;
+    }
+  }
+}
+
+.buttons-palette-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.buttons-palette-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  button[class*='button'] {
+    &[class*='--variant-primary'] {
+      @include style-filter-icon($color-white);
+    }
+    &[class*='--variant-secondary'] {
+      @include style-filter-icon($color-interactive);
+    }
+    &[class*='--variant-tertiary'] {
+      @include style-filter-icon($color-interactive);
+    }
+    &[class*='--variant-text'] {
+      @include style-filter-icon($color-front-dark);
+
+      &:hover {
+        @include style-filter-icon($color-front-light);
+      }
+    }
+    &[class*='--variant-secondary'],
+    &[class*='--variant-tertiary'],
+    &[class*='--variant-text'] {
+      &[aria-disabled='true'] {
+        @include style-filter-icon($color-disabled-front);
+      }
+    }
+  }
+}
+
+.buttons-palette-label {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.button-with-custom-style-wrapper {
+  .custom-style-red-button {
+    background-color: red;
+    padding: 10px;
+  }
+}

@@ -1,24 +1,51 @@
-import React from "react";
-import { StoryObj, Meta } from "@storybook/react";
-import {Button} from "./Button";
+import React from 'react';
+import { Meta } from '@storybook/react';
+import { IButtonProps, TButtonSize, TButtonVariant } from './button';
+import { BasicButton, ButtonsPalette } from './button.composition';
+import { fn } from '@storybook/test';
 
-const meta = {
-  title: "ReactComponentLibrary/Button",
-  component: Button,
-} as Meta<typeof Button>;
+const variantArgTypes: TButtonVariant[] = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'text',
+];
+const sizeArgTypes: TButtonSize[] = ['large', 'medium', 'small'];
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-
-export const Primary: Story = {
-    args: {
-      label: 'Hello world!',
+export default {
+  title: 'UI/Button',
+  component: BasicButton,
+  argTypes: {
+    size: {
+      control: 'select',
+      options: sizeArgTypes,
     },
-  };
-
-  export const ClickMe: Story = {
-    args: {
-      label: 'Click me',
+    variant: {
+      control: 'select',
+      options: variantArgTypes,
     },
-  };
+    disabled: {
+      control: 'select',
+      options: [true, false],
+    },
+    fullWidth: {
+      control: 'select',
+      options: [true, false],
+    },
+    onClick: { action: 'clicked' },
+    loading: {
+      control: 'radio',
+      options: [true, false],
+    },
+  },
+  args: { onClick: fn() },
+} as Meta;
+
+const Template = (args: Partial<IButtonProps>) => <BasicButton {...args} />;
+
+export const Default = Template.bind({});
+
+const PaletteTemplate = (args: Partial<IButtonProps>) => (
+  <ButtonsPalette {...args} />
+);
+export const Palette = PaletteTemplate.bind({});
