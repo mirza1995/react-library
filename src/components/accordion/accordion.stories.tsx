@@ -1,5 +1,5 @@
 import React from "react";
-import "@/sz-theme/_globalStyles.scss"
+import "src/sz-theme/_globalStyles.scss"
 import { Meta } from "@storybook/react";
 import { AccordionArgs, Basic, WithPercentileIconInTitle } from "./accordion.composition";
 

@@ -1,5 +1,5 @@
 import './text-input.composition.scss';
-import '@/sz-theme/_globalStyles.scss';
+import 'src/sz-theme/_globalStyles.scss';
 import React from 'react';
 import PEN from './pen.svg';
 import { ITextInputProps, TextInput } from './text-input';
