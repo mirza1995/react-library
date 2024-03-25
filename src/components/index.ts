@@ -1,5 +1,5 @@
 export { Button } from "./Button";
-export type {ButtonProps} from './Button';
+export type { IButtonProps } from './Button';
 
 export { Loader } from './loader';
 export type { LoaderProps } from './loader';
