@@ -7,7 +7,7 @@ import React, {
   ReactNode,
 } from 'react';
 import style from './Button.module.scss';
-import { Loader } from '../loader';
+import { Loader } from '@/components/loader';
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
