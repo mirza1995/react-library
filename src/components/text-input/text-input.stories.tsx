@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { ITextInputProps } from './text-input';
+import { Meta, StoryObj } from '@storybook/react';
+import { ITextInputProps, TextInput } from './text-input';
 import {
   BasicTextInput,
   BasicTextInputWithIcon,
@@ -45,3 +45,14 @@ const BasicTextInputWithIconTemplate = (args: Partial<ITextInputProps>) => (
 );
 
 export const WithIcon = BasicTextInputWithIconTemplate.bind({});
+
+
+type Story = StoryObj<typeof TextInput>;
+export const Figma: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/EsRxMIeKF76aLDARBQIkde/SZ-UI-Kit-2-%E2%80%93-COMPONENT-CANDIDATES?type=design&node-id=127-7192&mode=design&t=DWnujnXCDjBdC5CB-4',
+    },
+  },
+};

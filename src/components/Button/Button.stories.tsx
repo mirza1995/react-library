@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { IButtonProps, TButtonSize, TButtonVariant } from './Button';
+import { Meta, StoryObj } from '@storybook/react';
+import { Button, IButtonProps, TButtonSize, TButtonVariant } from './Button';
 import { BasicButton, ButtonsPalette } from './button.composition';
 import { fn } from '@storybook/test';
 
@@ -49,3 +49,13 @@ const PaletteTemplate = (args: Partial<IButtonProps>) => (
   <ButtonsPalette {...args} />
 );
 export const Palette = PaletteTemplate.bind({});
+
+type Story = StoryObj<typeof Button>;
+export const Figma: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/EsRxMIeKF76aLDARBQIkde/SZ-UI-Kit-2-%E2%80%93-COMPONENT-CANDIDATES?type=design&node-id=36-5933&mode=design&t=DWnujnXCDjBdC5CB-4',
+    },
+  },
+};
